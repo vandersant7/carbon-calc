@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de emissões de CO2 para diferentes modos de transporte">
+    <title>Calculadora de emissões de CO2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__content">
+            <h1 class="header__title">🍃 Calculadora de emissões de CO2</h1>
+            <p class="header__subtitle">Calcule as emissões de CO2 do seu deslocamento e descubra o impacto ambiental</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <form id="calculator-form" class="calculator">
+            <fieldset class="calculator__fieldset">
+                <div class="calculator__field">
+                    <label for="origin" class="calculator__label">Origem</label>
+                    <input 
+                        type="text" 
+                        id="origin" 
+                        class="calculator__input"
+                        placeholder="Digite sua cidade de origem"
+                        list="cities-list"
+                        required
+                    >
+                </div>
+
+                <div class="calculator__field">
+                    <label for="destination" class="calculator__label">Destino</label>
+                    <input 
+                        type="text" 
+                        id="destination" 
+                        class="calculator__input"
+                        placeholder="Digite sua cidade de destino"
+                        list="cities-list"
+                        required
+                    >
+                </div>
+
+                <datalist id="cities-list"></datalist>
+
+                <div class="calculator__field">
+                    <label for="distance" class="calculator__label">Distância (km)</label>
+                    <input 
+                        type="number" 
+                        id="distance" 
+                        class="calculator__input"
+                        placeholder="Distância em quilômetros"
+                        step="0.1"
+                        min="0"
+                        readonly
+                    >
+                    <small class="calculator__helper">A distância será preenchida automaticamente</small>
+                </div>
+
+                <div class="calculator__field">
+                    <label for="manual-distance" class="calculator__checkbox">
+                        <input 
+                            type="checkbox" 
+                            id="manual-distance"
+                            class="calculator__checkbox-input"
+                        >
+                        <span class="calculator__checkbox-text">Inserir distância manualmente</span>
+                    </label>
+                </div>
+
+                <fieldset class="calculator__transport">
+                    <legend class="calculator__transport-legend">Modo de transporte</legend>
+                    <div class="calculator__transport-grid">
+                        <label class="calculator__transport-option">
+                            <input 
+                                type="radio" 
+                                name="transport" 
+                                value="bicycle"
+                                class="calculator__transport-input"
+                            >
+                            <span class="calculator__transport-label">🚴 Bicicleta</span>
+                        </label>
+
+                        <label class="calculator__transport-option">
+                            <input 
+                                type="radio" 
+                                name="transport" 
+                                value="car"
+                                class="calculator__transport-input"
+                                checked
+                            >
+                            <span class="calculator__transport-label">🚗 Carro</span>
+                        </label>
+
+                        <label class="calculator__transport-option">
+                            <input 
+                                type="radio" 
+                                name="transport" 
+                                value="bus"
+                                class="calculator__transport-input"
+                            >
+                            <span class="calculator__transport-label">🚌 Ônibus</span>
+                        </label>
+
+                        <label class="calculator__transport-option">
+                            <input 
+                                type="radio" 
+                                name="transport" 
+                                value="truck"
+                                class="calculator__transport-input"
+                            >
+                            <span class="calculator__transport-label">🚚 Caminhão</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="calculator__button">Calcular emissão</button>
+            </fieldset>
+        </form>
+
+        <section id="results" class="results hidden">
+            <div id="results-content" class="results__content"></div>
+        </section>
+
+        <section id="comparisson" class="comparisson hidden">
+            <div id="comparisson-content" class="comparisson__content"></div>
+        </section>
+
+        <section id="carbon-credits" class="carbon-credits hidden">
+            <div id="carbon-credits-content" class="carbon-credits__content"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">Desenvolvido com ❤️ Evandro | Projeto GitHub Copilot</p>
+    </footer>
+
+    <script src="js/routes-data.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
